@@ -190,9 +190,7 @@ const HigchartsLine = () => {
         useHTML: true,
         formatter: function () {
           return this.points.reduce(function (s, point) {
-              // return s + '<br/>' + '<div style="display:inline-block; background-color: #000; width: 8px; height: 8px; margin-right: 4px;"></span>' +  point.series.name + ': ' +
-              //     point.y + '%';
-              return `${s}<div style="display: flex; width: 100%; justify-content: space-between;"><div style="display: flex; align-items: center;"><div style="display:flex; background-color: #000; width: 8px; height: 8px; margin-right: 4px;"></div> <span style="width: 165px; overflow: hidden; text-overflow: ellipsis;">${point.series.name}</span></div> <span style="display: flex; algin-self: center; font-weight: bold; margin-left: 20px;">${point.y}%</span> </div>`
+              return `${s}<div style="display: flex; width: 100%; justify-content: space-between; margin-top: 16px;"><div style="display: flex; align-items: center;"><div style="display:flex; background-color: #000; width: 8px; height: 8px; margin-right: 4px;"></div> <span style="width: 165px; overflow: hidden; text-overflow: ellipsis;">${point.series.name}</span></div> <span style="display: flex; algin-self: center; font-weight: bold; margin-left: 20px;">${point.y}%</span> </div>`
           }, '<b>' + this.x + '</b>');
         },
         shared: true,
