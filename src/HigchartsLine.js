@@ -165,7 +165,7 @@ const HigchartsLine = () => {
         type: 'line',
       },
       title: {
-        text: 'Retorno - 30/03/11 a 28/08/20',
+        text: 'Rentabilidade - 30/03/11 a 28/08/20',
         align: 'left'
       },
       subtitle: {
@@ -187,10 +187,12 @@ const HigchartsLine = () => {
         enabled: false
       },
       tooltip: {
+        useHTML: true,
         formatter: function () {
           return this.points.reduce(function (s, point) {
-              return new Date(s).toString() + '<br/>' + point.series.name + ': ' +
-                  point.y + '%';
+              // return s + '<br/>' + '<div style="display:inline-block; background-color: #000; width: 8px; height: 8px; margin-right: 4px;"></span>' +  point.series.name + ': ' +
+              //     point.y + '%';
+              return `${s}<div style="display: flex; width: 100%; justify-content: space-between;"><div style="display: flex; align-items: center;"><div style="display:flex; background-color: #000; width: 8px; height: 8px; margin-right: 4px;"></div> <span style="width: 165px; overflow: hidden; text-overflow: ellipsis;">${point.series.name}</span></div> <span style="display: flex; algin-self: center; font-weight: bold; margin-left: 20px;">${point.y}%</span> </div>`
           }, '<b>' + this.x + '</b>');
         },
         shared: true,
@@ -212,6 +214,7 @@ const HigchartsLine = () => {
       series: [
         {
           data: data,
+          name: 'AAA ALLOCATION FIC MULTIMERCADO',
           lineWidth: 3, 
           lineColor: '#09B4FF',
           color: {
@@ -226,6 +229,7 @@ const HigchartsLine = () => {
           data: data2,
           lineWidth: 3, 
           lineColor: '#FF5D75',
+          name: 'PETR4',
           color: {
             linearGradient: { x1: 0, x2: 0, y1: 1, y2: 0 },
             stops: [
